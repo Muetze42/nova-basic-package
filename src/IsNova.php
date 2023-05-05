@@ -4,7 +4,7 @@ namespace NormanHuth\NovaBasePackage;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class IsNova
+trait IsNova
 {
     /**
      * @return NovaRequest
