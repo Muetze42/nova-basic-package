@@ -1,0 +1,21 @@
+@tailwind components;
+@tailwind utilities;
+
+@for $i from 4 through 32 {
+    .sidebar-icon-h#{$i} {
+        max-height: #{$i}px;
+        svg {
+            height: #{$i}px;
+        }
+    }
+}
+
+.sidebar-fa-icon {
+    svg {
+        fill: currentColor;
+    }
+}
+
+.sidebar-item-card {
+    @apply ml-10;
+}
