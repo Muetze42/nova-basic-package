@@ -1,0 +1,30 @@
+{
+    "name": "norman-huth/nova-basic-package",
+    "support": {
+        "source": "https://github.com/Muetze42/nova-basic-package",
+        "issues": "https://github.com/Muetze42/nova-basic-package/issues",
+        "docs": "https://github.com/Muetze42/nova-basic-package#readme"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NormanHuth\\NovaBasePackage\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NormanHuth\\NovaBasePackage\\ServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Norman Huth",
+            "homepage": "https://huth.it"
+        }
+    ],
+    "require": {
+        "php": "^8.0"
+    }
+}
