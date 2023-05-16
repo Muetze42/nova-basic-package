@@ -3,8 +3,6 @@
 namespace NormanHuth\NovaBasePackage;
 
 use Illuminate\Support\ServiceProvider as Provider;
-use Laravel\Nova\Events\ServingNova;
-use Laravel\Nova\Nova;
 
 class ServiceProvider extends Provider
 {
@@ -17,9 +15,11 @@ class ServiceProvider extends Provider
      */
     public function boot(): void
     {
-        Nova::serving(function (ServingNova $event) {
-            Nova::style('nova-basic-package-styles', __DIR__.'/../dist/css/package.css');
-        });
+        if (class_exists(\Laravel\Nova\Events\ServingNova::class) && class_exists(\Laravel\Nova\Nova::class)) {
+            \Laravel\Nova\Nova::serving(function (\Laravel\Nova\Events\ServingNova $event) {
+                \Laravel\Nova\Nova::style('nova-basic-package-styles', __DIR__.'/../dist/css/package.css');
+            });
+        }
 
         $this->addAbout();
     }
