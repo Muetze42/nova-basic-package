@@ -8,6 +8,8 @@ use Laravel\Nova\Nova;
 
 class ServiceProvider extends Provider
 {
+    use ServiceProviderTrait;
+
     /**
      * Bootstrap any application services.
      *
@@ -18,6 +20,8 @@ class ServiceProvider extends Provider
         Nova::serving(function (ServingNova $event) {
             Nova::style('nova-basic-package-styles', __DIR__.'/../dist/css/package.css');
         });
+
+        $this->addAbout();
     }
 
     /**
