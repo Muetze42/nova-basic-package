@@ -22,6 +22,24 @@ class ServiceProvider extends Provider
         }
 
         $this->addAbout();
+
+        if ($this->app->runningInConsole()) {
+            $this->commands($this->getCommands());
+        }
+    }
+
+    /**
+     * Get all package commands.
+     *
+     * @return array
+     */
+    protected function getCommands(): array
+    {
+        return array_filter(array_map(function ($item) {
+            return '\\'.__NAMESPACE__.'\\Console\\Commands\\'.pathinfo($item, PATHINFO_FILENAME);
+        }, glob(__DIR__.'/Console/Commands/*.php')), function ($item) {
+            return class_basename($item) != 'Command';
+        });
     }
 
     /**
