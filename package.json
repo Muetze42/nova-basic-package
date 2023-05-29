@@ -2,9 +2,11 @@
     "private": true,
     "scripts": {
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "build:fa": "mix --mix-config=webpack.fa.mix.js --production"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.4.0",
         "autoprefixer": "^10.4.14",
         "laravel-mix": "^6.0.41",
         "postcss": "^8.4.23",

@@ -16,4 +16,13 @@ module.exports = [
     | Reference: https://tailwindcss.com/docs/height
     */
     'h-20',
+
+    /*
+    |-------------------------------------------------------------------------------
+    | Sizing: Max-Width
+    |-------------------------------------------------------------------------------
+    | Utilities for setting the maximum width of an element.
+    | Reference: https://tailwindcss.com/docs/max-width
+    */
+    'max-w-[11rem]',
 ]
