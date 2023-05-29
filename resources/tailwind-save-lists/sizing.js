@@ -24,5 +24,6 @@ module.exports = [
     | Utilities for setting the maximum width of an element.
     | Reference: https://tailwindcss.com/docs/max-width
     */
+    'max-w-[9rem]',
     'max-w-[11rem]',
 ]
