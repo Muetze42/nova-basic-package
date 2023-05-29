@@ -19,3 +19,7 @@
 .sidebar-item-card {
     @apply ml-10;
 }
+
+.w-full-child > * {
+    width: 100%;
+}
