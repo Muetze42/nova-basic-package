@@ -4,7 +4,6 @@ namespace NormanHuth\NovaBasePackage;
 
 use NormanHuth\NovaBasePackage\Helpers\Composer;
 use ReflectionClass;
-use Illuminate\Foundation\Console\AboutCommand;
 
 trait ServiceProviderTrait
 {
@@ -16,6 +15,10 @@ trait ServiceProviderTrait
      */
     protected function addAbout(string $section = 'Nova Packages'): void
     {
+        if (!class_exists(\Illuminate\Foundation\Console\AboutCommand::class)) {
+            return;
+        }
+
         if (!$this->app->runningInConsole()) {
             return;
         }
@@ -34,6 +37,6 @@ trait ServiceProviderTrait
             return;
         }
 
-        AboutCommand::add($section, fn () => [$name => Composer::getLockedVersion($name)]);
+        \Illuminate\Foundation\Console\AboutCommand::add($section, fn () => [$name => Composer::getLockedVersion($name)]);
     }
 }
